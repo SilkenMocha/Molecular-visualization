@@ -2,14 +2,14 @@
 #$ source activate myenv
 
 import streamlit as st
-#import py3Dmol
-#from stmol import showmol
-#from psikit import Psikit
-#import numpy as np
+import py3Dmol
+from stmol import showmol
+from psikit import Psikit
+import numpy as np
 #import psi4
 
-#from rdkit import Chem
-#from rdkit.Chem import AllChem
+from rdkit import Chem
+from rdkit.Chem import AllChem
 
 #pk = Psikit()
 #pk.read_from_smiles('O')
