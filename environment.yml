@@ -1,15 +1,15 @@
 channels:
- - anaconda
  - psi4
  - conda-forge
  - rdkit
 
 dependencies:
+ - anaconda
  - psi4
  - py3Dmol
  - rdkit
  - pillow
- - numpy=1.13.3
+ - numpy
  - pip:
   -stmol
 
