@@ -1,5 +1,11 @@
 channels:
   - psi4
- 
+  - conda-forge
  dependencies:
   - psi4
+  - rdkit
+  - py3Dmol
+  - pillow
+  - numpy=1.13.3
+  - pip: 
+    -stmol
