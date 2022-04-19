@@ -9,7 +9,7 @@ dependencies:
  - py3Dmol
  - rdkit
  - pillow
- - numpy
+ - numpy=1.13.3 
  - pip:
   -stmol
 
