@@ -1,6 +1,6 @@
 channels:
  - psi4
- - conda-forge
+
 
 
 dependencies:
