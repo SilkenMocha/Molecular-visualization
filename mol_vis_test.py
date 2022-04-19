@@ -1,7 +1,7 @@
 #$ conda activate myenv
 #$ source activate myenv
 
-#import streamlit as st
+import streamlit as st
 #import py3Dmol
 #from stmol import showmol
 #from psikit import Psikit
@@ -27,7 +27,7 @@
 #v.zoomTo()
 #v.show()
 
-#st.title('RDKit + Py3DMOL 😀')
+st.title('RDKit + Py3DMOL 😀')
 #st.write('Hello world')
 
 
