@@ -4,6 +4,7 @@ channels:
  - rdkit
 
 dependencies:
+ - python=3.7
  - anaconda
  - psi4
  - py3Dmol
