@@ -3,3 +3,12 @@ channels:
 
 dependencies:
  - psi4
+ - numpy=1.13.3
+ - pip:
+  -rdkit-pypi
+  -Pillow
+  -stmol
+  -py3Dmol
+
+
+
