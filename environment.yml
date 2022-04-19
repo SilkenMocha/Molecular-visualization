@@ -7,12 +7,5 @@ dependencies:
  - python=3.7
  - anaconda
  - psi4
- - py3Dmol
- - rdkit
- - pillow
- - numpy=1.13.3 
- - pip:
-  -stmol
-
 
 
