@@ -1,0 +1,6 @@
+rdkit-pypi
+Pillow
+stmol
+numpy
+py3Dmol
+git+https://github.com/Mishima-syk/psikit
