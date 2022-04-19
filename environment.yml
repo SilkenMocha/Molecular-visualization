@@ -1,8 +1,9 @@
-name: myenv
+name: streamlit-conda-minimal
 channels:
   - psi4
   - conda-forge
  dependencies:
+  - streamlit >= 0.73
   - psi4
   - rdkit
   - py3Dmol
