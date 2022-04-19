@@ -1,7 +1,7 @@
 channels:
  - psi4
  - conda-forge
- - rdkit
+
 
 dependencies:
  - python=3.7
