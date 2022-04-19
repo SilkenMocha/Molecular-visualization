@@ -2,3 +2,4 @@ rdkit-pypi
 Pillow
 stmol
 numpy
+py3Dmol
