@@ -12,7 +12,7 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 
 #pk = Psikit()
-#pk.read_from_smiles('O')
+pk.read_from_smiles('O')
 #pk.energy()
 #pk.create_cube_files(gridspace=0.5)
 
