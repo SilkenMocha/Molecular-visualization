@@ -41,6 +41,7 @@ if seleccion_molecula == "Subir un archivo":
         sdfview = py3Dmol.view(width=400,height=400)
         sdfview.addModel(sdf,'sdf')
         sdfview.setStyle({'stick':{}})
+        xyzview.setBackgroundColor('white')#('0xeeeeee')
         sdfview.zoomTo()
         sdfview.show()
     
