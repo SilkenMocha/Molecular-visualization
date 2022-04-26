@@ -34,6 +34,7 @@ if seleccion_molecula == "Subir un archivo":
         for uploaded_file in uploaded_files:
             sdf = uploaded_file.getvalue().decode("utf-8")
             render_mol(sdf)
+            st.write(sdf)
       
     #render sdf
     def render_mol(sdf):
