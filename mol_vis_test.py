@@ -25,10 +25,10 @@ if seleccion_molecula == "Subir un archivo":
       
     uploaded_files = st.sidebar.file_uploader("Choose xyz files", accept_multiple_files=True)
     #file_type = st.sidebar.radio("Tipo de archivo", ("xyz","mol","sdf"))
-    #if file_type == "xyz":
-        #for uploaded_file in uploaded_files:
-            #xyz = uploaded_file.getvalue().decode("utf-8")
-            #render_mol(xyz)
+        
+    for uploaded_file in uploaded_files:
+        xyz = uploaded_file.getvalue().decode("utf-8")
+        render_mol(xyz)
 
     #if file_type == "xyz": 
         #for uploaded_file in uploaded_files:
@@ -47,7 +47,6 @@ if seleccion_molecula == "Subir un archivo":
     
     for uploaded_file in uploaded_files:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-        render_mol(xyz)
         string_data = stringio.read()
         
 
