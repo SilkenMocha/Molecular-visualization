@@ -30,11 +30,11 @@ if seleccion_molecula == "Subir un archivo":
             #xyz = uploaded_file.getvalue().decode("utf-8")
             #render_mol(xyz)
 
-    #if file_type == "sdf": 
+    #if file_type == "xyz": 
         #for uploaded_file in uploaded_files:
-            #sdf = uploaded_file.getvalue().decode("utf-8")
-            #render_mol(sdf)
-            #st.write(sdf)
+            #xyz = uploaded_file.getvalue().decode("utf-8")
+            #render_mol(xyz)
+            #st.write(xyz)
       
     #render sdf
     #def render_mol(sdf):
@@ -47,6 +47,7 @@ if seleccion_molecula == "Subir un archivo":
     
     for uploaded_file in uploaded_files:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+        render_mol(xyz)
         string_data = stringio.read()
         
 
