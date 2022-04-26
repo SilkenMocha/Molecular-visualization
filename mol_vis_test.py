@@ -14,6 +14,7 @@ st.title('VISUALIZACIÓN MOLECUALR')
 seleccion_molecula = st.selectbox("Seleccione una opción: ", ["SMILES", "Subir un archivo"])
 
 if seleccion_molecula == "Subir un archivo":
+    #render xyz
     def render_mol(xyz):
        xyzview = py3Dmol.view(width=400,height=400)
        xyzview.addModel(xyz,'xyz')
@@ -30,7 +31,13 @@ if seleccion_molecula == "Subir un archivo":
        render_mol(xyz)
        #st.write(xyz)
       
-    #xyz to SMILES
+    #render mol
+    def render_mol(mol):
+        molview = py3Dmol.view(width=400,height=400)
+        view.addModel(xyzz,'sdf')
+        view.setStyle({'stick':{}})
+        view.zoomTo()
+        view.show()
     
     for uploaded_file in uploaded_files:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
