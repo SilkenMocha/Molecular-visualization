@@ -24,26 +24,26 @@ if seleccion_molecula == "Subir un archivo":
        showmol(xyzview, height = 500,width=800)      
       
     uploaded_files = st.sidebar.file_uploader("Choose xyz files", accept_multiple_files=True)
-    file_type = st.sidebar.radio("Tipo de archivo", ("xyz","mol","sdf"))
-    if file_type == "xyz":
-        for uploaded_file in uploaded_files:
-            xyz = uploaded_file.getvalue().decode("utf-8")
-            render_mol(xyz)
+    #file_type = st.sidebar.radio("Tipo de archivo", ("xyz","mol","sdf"))
+    #if file_type == "xyz":
+        #for uploaded_file in uploaded_files:
+            #xyz = uploaded_file.getvalue().decode("utf-8")
+            #render_mol(xyz)
 
-    if file_type == "sdf": 
-        for uploaded_file in uploaded_files:
-            sdf = uploaded_file.getvalue().decode("utf-8")
-            render_mol(sdf)
-            st.write(sdf)
+    #if file_type == "sdf": 
+        #for uploaded_file in uploaded_files:
+            #sdf = uploaded_file.getvalue().decode("utf-8")
+            #render_mol(sdf)
+            #st.write(sdf)
       
     #render sdf
-    def render_mol(sdf):
-        sdfview = py3Dmol.view(width=400,height=400)
-        sdfview.addModel(sdf,'sdf')
-        sdfview.setStyle({'stick':{}})
-        xyzview.setBackgroundColor('white')#('0xeeeeee')
-        sdfview.zoomTo()
-        sdfview.show()
+    #def render_mol(sdf):
+        #sdfview = py3Dmol.view(width=400,height=400)
+        #sdfview.addModel(sdf,'sdf')
+        #sdfview.setStyle({'stick':{}})
+        #xyzview.setBackgroundColor('white')#('0xeeeeee')
+        #sdfview.zoomTo()
+        #sdfview.show()
     
     for uploaded_file in uploaded_files:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
