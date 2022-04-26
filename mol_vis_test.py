@@ -28,13 +28,14 @@ if seleccion_molecula == "Subir un archivo":
 
     for uploaded_file in uploaded_files:
        xyz = uploaded_file.getvalue().decode("utf-8")
+       sdf = uploaded_file.getvalue().decode("utf-8")
        render_mol(xyz)
        #st.write(xyz)
       
-    #render mol
-    def render_mol(mol):
+    #render sdf
+    def render_mol(sdf):
         molview = py3Dmol.view(width=400,height=400)
-        view.addModel(xyzz,'sdf')
+        view.addModel(sdf,'sdf')
         view.setStyle({'stick':{}})
         view.zoomTo()
         view.show()
