@@ -35,10 +35,10 @@ if seleccion_molecula == "Subir un archivo":
     #render sdf
     def render_mol(sdf):
         molview = py3Dmol.view(width=400,height=400)
-        view.addModel(sdf,'sdf')
-        view.setStyle({'stick':{}})
-        view.zoomTo()
-        view.show()
+        molview.addModel(sdf,'sdf')
+        molview.setStyle({'stick':{}})
+        molview.zoomTo()
+        molview.show()
     
     for uploaded_file in uploaded_files:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
