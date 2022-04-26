@@ -25,20 +25,23 @@ if seleccion_molecula == "Subir un archivo":
       
     uploaded_files = st.sidebar.file_uploader("Choose xyz files", accept_multiple_files=True)
     file_type = st.sidebar.radio("Tipo de archivo", ("xyz","mol","sdf"))
+    if file_type == "xyz":
+        for uploaded_file in uploaded_files:
+            xyz = uploaded_file.getvalue().decode("utf-8")
+            render_mol(xyz)
 
-    for uploaded_file in uploaded_files:
-       xyz = uploaded_file.getvalue().decode("utf-8")
-       sdf = uploaded_file.getvalue().decode("utf-8")
-       render_mol(xyz)
-       #st.write(xyz)
+    if file_type == "sdf": 
+        for uploaded_file in uploaded_files:
+            sdf = uploaded_file.getvalue().decode("utf-8")
+            render_mol(sdf)
       
     #render sdf
     def render_mol(sdf):
-        molview = py3Dmol.view(width=400,height=400)
-        molview.addModel(sdf,'sdf')
-        molview.setStyle({'stick':{}})
-        molview.zoomTo()
-        molview.show()
+        sdfview = py3Dmol.view(width=400,height=400)
+        sdfview.addModel(sdf,'sdf')
+        sdfview.setStyle({'stick':{}})
+        sdfview.zoomTo()
+        sdfview.show()
     
     for uploaded_file in uploaded_files:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
