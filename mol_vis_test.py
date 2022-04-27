@@ -17,7 +17,9 @@ if seleccion_molecula == "Subir un archivo":
     #render xyz
     def render_mol(xyz):
        xyzview = py3Dmol.view(width=400,height=400)
+       xyzview.addModel(xyz,'xyz')
        xyzview.addModel(xyz,'sdf')
+       #xyzview.addModel(xyz,'mol')
        xyzview.setStyle({'stick':{}})
        xyzview.setBackgroundColor('white')#('0xeeeeee')
        xyzview.zoomTo()
