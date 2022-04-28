@@ -1,13 +1,28 @@
 import streamlit as st
+import pandas as pd
+import math 
+#_________________________
 import py3Dmol
 from stmol import showmol
 import numpy as np
 from rdkit import Chem
 from rdkit.Chem import AllChem
+#_________________________
+from rdkit import Chem
+from rdkit.Chem import AllChem
+from rdkit.Chem import Descriptors
 
+from rdkit.Chem import Draw
+from rdkit.Chem.Draw import rdMolDraw2D
+
+from rdkit.Chem.Draw import SimilarityMaps
+from rdkit.Chem import rdMolDescriptors
+#_________________________
 import requests
 import json
 from io import StringIO
+#_________________________
+#Inicio#
 
 st.title('VISUALIZACIÓN MOLECUALR')
 
