@@ -3,4 +3,4 @@ Pillow
 stmol
 numpy
 py3Dmol
-
+matplotlib
