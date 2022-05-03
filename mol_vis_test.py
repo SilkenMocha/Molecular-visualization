@@ -22,6 +22,8 @@ import requests
 import json
 from io import StringIO
 #_________________________
+import pyDPI
+
 #Inicio#
 st.title ("FENÓMENOS CUÁNTICOS")
 st.subheader("Erick López Saldviar 348916")
@@ -162,7 +164,23 @@ if seleccion == "Visualizacion molecular":
         xyz = uploaded_file.getvalue().decode("utf-8")
         render_mol(xyz)
         #st.write(xyz)
+      #pyDPI
+      from pydpi import pydrug
+      from pydpi.pydrug import Chem
+      from pydpi.drug import constitution 
       
+      mol=Chem.MolFromSmiles('O=C(Oc1ccccc1C(=O)O)C')
+      
+      mol_weight=constitution.CalculateMolWeight(mol)
+      st.write(mol_weight)
+      path2=constitution.CalculatePath2(mol)
+      st.write(path2)
+      RingNumber=constitution.CalculateRingNumber(mol)
+      st.write(RingNumber)
+      constitutional=constitution.GetConstitutional(mol)
+      st.write(constitutional)
+
+
       #xyz to SMILES
       if file_type == "xyz":
         def xyz_to_smi(str_input):
