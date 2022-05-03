@@ -22,8 +22,6 @@ import requests
 import json
 from io import StringIO
 #_________________________
-#import pyDPI
-
 #Inicio#
 st.title ("FENÓMENOS CUÁNTICOS")
 st.subheader("Erick López Saldviar 348916")
@@ -146,8 +144,6 @@ if seleccion == "Visualizacion molecular":
       fig2 = SimilarityMaps.GetSimilarityMapFromWeights(mol,[x for x,y in contribs], colorMap='jet', contourLines=10)
       st.pyplot(fig2)
 
-
-
     if seleccion_molecula == "Subir un archivo":
       def render_mol(xyz):
         xyzview = py3Dmol.view(width=400,height=400)
@@ -166,8 +162,7 @@ if seleccion == "Visualizacion molecular":
         xyz = uploaded_file.getvalue().decode("utf-8")
         render_mol(xyz)
         #st.write(xyz)
-
-
+      
       #xyz to SMILES
       if file_type == "xyz":
         def xyz_to_smi(str_input):
@@ -232,7 +227,6 @@ if seleccion == "Visualizacion molecular":
       blk=makeblock(compound_smiles)
       render_mol(blk)
       otros_parametros(compound_smiles)
-
 
 
 
