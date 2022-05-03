@@ -59,14 +59,14 @@ if seleccion == "Visualizacion molecular":
       st.pyplot(fig2)
 
       #PyDPI
-      from pydpi import pydrug
-      from pydpi.pydrug import Chem
-      from pydpi.drug import constitution 
+      #from pydpi import pydrug
+      #from pydpi.pydrug import Chem
+      #from pydpi.drug import constitution 
       
-      mol=Chem.MolFromSmiles('O=C(Oc1ccccc1C(=O)O)C')
+      #mol=Chem.MolFromSmiles('O=C(Oc1ccccc1C(=O)O)C')
       
-      res=constitution.CalculateMolWeight(mol)
-      st.write(res)
+      #res=constitution.CalculateMolWeight(mol)
+      #st.write(res)
 
 
     if seleccion_molecula == "Subir un archivo":
