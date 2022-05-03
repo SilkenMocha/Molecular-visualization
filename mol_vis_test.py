@@ -22,7 +22,7 @@ import requests
 import json
 from io import StringIO
 #_________________________
-import pyDPI
+#import pyDPI
 
 #Inicio#
 st.title ("FENÓMENOS CUÁNTICOS")
