@@ -22,6 +22,9 @@ import requests
 import json
 from io import StringIO
 #_________________________
+#pyDPI
+
+
 #Inicio#
 
 st.title('VISUALIZACIÓN MOLECUALR')
@@ -54,6 +57,17 @@ if seleccion == "Visualizacion molecular":
       contribs = rdMolDescriptors._CalcCrippenContribs(mol)
       fig2 = SimilarityMaps.GetSimilarityMapFromWeights(mol,[x for x,y in contribs], colorMap='jet', contourLines=10)
       st.pyplot(fig2)
+
+      #PyDPI
+      from pydpi import pydrug
+      from pydpi.pydrug import Chem
+      from pydpi.drug import constitution 
+      
+      mol=Chem.MolFromSmiles('O=C(Oc1ccccc1C(=O)O)C')
+      
+      res=constitution.CalculateMolWeight(mol)
+      st.write(res)
+
 
     if seleccion_molecula == "Subir un archivo":
       def render_mol(xyz):
