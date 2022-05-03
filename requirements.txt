@@ -5,3 +5,4 @@ numpy
 py3Dmol
 matplotlib
 pydpi
+mordred
