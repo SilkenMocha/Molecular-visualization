@@ -146,21 +146,7 @@ if seleccion == "Visualizacion molecular":
       fig2 = SimilarityMaps.GetSimilarityMapFromWeights(mol,[x for x,y in contribs], colorMap='jet', contourLines=10)
       st.pyplot(fig2)
 
-      #pyDPI
-      from pydpi import pydrug
-      from pydpi.pydrug import Chem
-      from pydpi.drug import constitution 
-      
-      #mol=Chem.MolFromSmiles('O=C(Oc1ccccc1C(=O)O)C')
-      
-      mol_weight=constitution.CalculateMolWeight(mol)
-      st.write(mol_weight)
-      path2=constitution.CalculatePath2(mol)
-      st.write(path2)
-      RingNumber=constitution.CalculateRingNumber(mol)
-      st.write(RingNumber)
-      constitutional=constitution.GetConstitutional(mol)
-      st.write(constitutional)
+
 
     if seleccion_molecula == "Subir un archivo":
       def render_mol(xyz):
