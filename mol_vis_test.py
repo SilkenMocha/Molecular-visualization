@@ -208,6 +208,8 @@ if seleccion == "Visualizacion molecular":
           return res 
 
         for uploaded_file in uploaded_files:
+          stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+          string_data = stringio.read()          
           propiedades = sdf_data(string_data)
 
           if "ROTATIONAL.CONSTANTS" in propiedades:
