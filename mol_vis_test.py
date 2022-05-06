@@ -207,6 +207,16 @@ if seleccion == "Visualizacion molecular":
                   app_line = True
           return res 
 
+        for uploaded_file in uploaded_files:
+          if "ROTATIONAL.CONSTANTS" in propiedades:
+            st.write("Constantes de rotacion: " + propiedades['ROTATIONAL.CONSTANTS'])
+        
+          if "ELECTRONIC.ENERGY" in propiedades: 
+            st.write("Energía electronica: " + propiedades['ELECTRONIC.ENERGY'])
+        
+          if "DIPOLE.MOMENT" in propiedades:
+            st.write("Momento dipolar: " + propiedades['DIPOLE.MOMENT'])
+
 
         def xyz_to_smi(str_input):
           webserver_url = "https://www.cheminfo.org/webservices/babel"
@@ -226,16 +236,6 @@ if seleccion == "Visualizacion molecular":
         st.subheader("SMILES: " + xyz_to_smi(string_data))
 
         propiedades = sdf_data(string_data)
-
-        if "ROTATIONAL.CONSTANTS" in propiedades:
-          st.write("Constantes de rotacion: " + propiedades['ROTATIONAL.CONSTANTS'])
-        
-        if "ELECTRONIC.ENERGY" in propiedades: 
-          st.write("Energía electronica: " + propiedades['ELECTRONIC.ENERGY'])
-        
-        if "DIPOLE.MOMENT" in propiedades:
-          st.write("Momento dipolar: " + propiedades['DIPOLE.MOMENT'])
-
         otros_parametros(compound_smiles)
 
 
