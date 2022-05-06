@@ -225,10 +225,17 @@ if seleccion == "Visualizacion molecular":
         compound_smiles = xyz_to_smi(string_data)
         st.subheader("SMILES: " + xyz_to_smi(string_data))
 
-        propiedades = sdf_data(string_data)
-        st.write("Constantes de rotacion:\n" + propiedades['ROTATIONAL.CONSTANTS'])
-        st.write("Energía electronica:\n" + propiedades['ELECTRONIC.ENERGY'])
-        st.write("Momento dipolar:\n" + propiedades['DIPOLE.MOMENT'])
+        if "ROTATIONAL.CONSTANTS" in propiedades:
+          propiedades = sdf_data(string_data)
+          st.write("Constantes de rotacion:\n" + propiedades['ROTATIONAL.CONSTANTS'])
+        
+        if "ELECTRONIC.ENERGY" in propiedades: 
+          propiedades = sdf_data(string_data)
+          st.write("Energía electronica:\n" + propiedades['ELECTRONIC.ENERGY'])
+        
+        if "DIPOLE.MOMENT" in propiedades:
+          propiedades = sdf_data(string_data)
+          st.write("Momento dipolar:\n" + propiedades['DIPOLE.MOMENT'])
 
         otros_parametros(compound_smiles)
 
