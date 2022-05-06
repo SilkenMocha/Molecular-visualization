@@ -153,8 +153,9 @@ if seleccion == "Visualizacion molecular":
         xyzview.setStyle({'stick':{}})
         xyzview.setBackgroundColor('white')#('0xeeeeee')
         xyzview.zoomTo()
-        showmol(xyzview, height = 500,width=800)      
-      
+        showmol(xyzview, height = 500,width=800)
+
+   
       uploaded_files = st.sidebar.file_uploader("Choose xyz files", accept_multiple_files=True)
       file_type = st.sidebar.radio("Tipo de archivo", ("xyz","mol","sdf"))
 
@@ -187,6 +188,27 @@ if seleccion == "Visualizacion molecular":
             return None
 
       if file_type== "sdf":
+        sdf = uploaded_file.getvalue().decode("utf-8")
+        def sdf_data(content):
+          lines = content.splitlines()
+          res = {}
+          aux = ""
+          aux2 = ""
+          app_line = False
+          for l in lines:
+              if app_line:
+                  if l == "":
+                      app_line = False
+                      res[aux] = aux2[1:]
+                      aux2 = ""
+                  else:
+                      aux2 = aux2 + "\n" + l
+              elif len(l) > 0 and l[0] == ">":
+                  aux = l[3:-1]
+                  app_line = True
+          return res 
+
+
         def xyz_to_smi(str_input):
           webserver_url = "https://www.cheminfo.org/webservices/babel"
           options='{"ph":"","hydrogens":"No change","coordinates":"None","inputFormat":"sdf -- MDL MOL format","outputFormat":"smi -- SMILES format"}'
@@ -203,6 +225,9 @@ if seleccion == "Visualizacion molecular":
 
         compound_smiles = xyz_to_smi(string_data)
         st.subheader("SMILES: " + xyz_to_smi(string_data))
+
+        propiedades = sdf_read(sdf)
+        st.write("Constantes de rotacion:\n"+propiedades['ROTATIONAL.CONSTANTS'])
 
         otros_parametros(compound_smiles)
 
