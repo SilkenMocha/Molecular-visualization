@@ -188,7 +188,6 @@ if seleccion == "Visualizacion molecular":
             return None
 
       if file_type== "sdf":
-        sdf = uploaded_file.getvalue().decode("utf-8")
         def sdf_data(content):
           lines = content.splitlines()
           res = {}
@@ -226,7 +225,7 @@ if seleccion == "Visualizacion molecular":
         compound_smiles = xyz_to_smi(string_data)
         st.subheader("SMILES: " + xyz_to_smi(string_data))
 
-        propiedades = sdf_read(sdf)
+        propiedades = sdf_read(string_data)
         st.write("Constantes de rotacion:\n"+propiedades['ROTATIONAL.CONSTANTS'])
 
         otros_parametros(compound_smiles)
