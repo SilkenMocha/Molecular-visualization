@@ -207,8 +207,9 @@ if seleccion == "Visualizacion molecular":
                   app_line = True
           return res 
 
-        propiedades = sdf_data(string_data)
         for uploaded_file in uploaded_files:
+          propiedades = sdf_data(string_data)
+
           if "ROTATIONAL.CONSTANTS" in propiedades:
             st.write("Constantes de rotacion: " + propiedades['ROTATIONAL.CONSTANTS'])
         
