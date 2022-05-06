@@ -228,13 +228,13 @@ if seleccion == "Visualizacion molecular":
         propiedades = sdf_data(string_data)
 
         if "ROTATIONAL.CONSTANTS" in propiedades:
-          st.write("Constantes de rotacion:\n" + propiedades['ROTATIONAL.CONSTANTS'])
+          st.write("Constantes de rotacion: " + propiedades['ROTATIONAL.CONSTANTS'])
         
         if "ELECTRONIC.ENERGY" in propiedades: 
-          st.write("Energía electronica:\n" + propiedades['ELECTRONIC.ENERGY'])
+          st.write("Energía electronica: " + propiedades['ELECTRONIC.ENERGY'])
         
         if "DIPOLE.MOMENT" in propiedades:
-          st.write("Momento dipolar:\n" + propiedades['DIPOLE.MOMENT'])
+          st.write("Momento dipolar: " + propiedades['DIPOLE.MOMENT'])
 
         otros_parametros(compound_smiles)
 
