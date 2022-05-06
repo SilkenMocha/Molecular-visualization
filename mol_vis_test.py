@@ -207,6 +207,7 @@ if seleccion == "Visualizacion molecular":
                   app_line = True
           return res 
 
+        propiedades = sdf_data(string_data)
         for uploaded_file in uploaded_files:
           if "ROTATIONAL.CONSTANTS" in propiedades:
             st.write("Constantes de rotacion: " + propiedades['ROTATIONAL.CONSTANTS'])
@@ -235,7 +236,6 @@ if seleccion == "Visualizacion molecular":
         compound_smiles = xyz_to_smi(string_data)
         st.subheader("SMILES: " + xyz_to_smi(string_data))
 
-        propiedades = sdf_data(string_data)
         otros_parametros(compound_smiles)
 
 
