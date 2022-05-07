@@ -34,10 +34,6 @@ from rdkit.Chem.Pharm2D import Gobbi_Pharm2D,Generate
 st.title ("FENÓMENOS CUÁNTICOS")
 st.subheader("Erick López Saldviar 348916")
 
-
-
-
-
 seleccion = st.selectbox("Seleccione una opción: ", ["Visualizacion molecular", "Reactividad"])
 
 #__________________________________________________________________________________________
