@@ -32,7 +32,13 @@ from rdkit.Chem.Pharm2D import Gobbi_Pharm2D,Generate
 
 #Inicio#
 st.title ("FENÓMENOS CUÁNTICOS")
+st.subheader("Calculos de reactividad y visualización molecular")
+st.image("https://www.meteorologiaenred.com/wp-content/uploads/2021/12/que-es-la-fisica-cuantica-caracteristicas.jpg")
 st.subheader("Erick López Saldviar 348916")
+
+
+
+
 
 seleccion = st.selectbox("Seleccione una opción: ", ["Visualizacion molecular", "Reactividad"])
 
@@ -42,15 +48,15 @@ if seleccion == "Reactividad":
   with st.form(key='calc_react'):
     st.write("Bienvenido. Este programa te calculara parámetros de reactividad")
     st.subheader('Hartress')
-    ht = st.number_input("Hartress: ", format="%.4f", step=1e-4)
-    ht0 = st.number_input("Hartress 0: ", format="%.4f", step=1e-4)
-    ht1p = st.number_input("Hartress +1: ", format="%.4f", step=1e-4)
-    ht1m = st.number_input("Hartress -1: ", format="%.4f", step=1e-4)
+    ht = st.number_input("Hartress: ", format="%.4f", step=1e-4, value=-2385.94419)
+    ht0 = st.number_input("Hartress 0: ", format="%.4f", step=1e-4, value=-2385.94419)
+    ht1p = st.number_input("Hartress +1: ", format="%.4f", step=1e-4, value=-2385.71123)
+    ht1m = st.number_input("Hartress -1: ", format="%.4f", step=1e-4, value=-2385.94144)
     st.subheader('Nucleofilicidad')
-    homo = st.number_input("HOMO:", format="%.4f", step=1e-4)
-    lumo = st.number_input("LUMO: ", format="%.4f", step=1e-4)
-    homo_o = st.number_input("HOMO (O):", format="%.4f", step=1e-4)
-    lumo_o = st.number_input("LUMO (V): ", format="%.4f", step=1e-4)
+    homo = st.number_input("HOMO:", format="%.4f", step=1e-4, value=-0.21145)
+    lumo = st.number_input("LUMO: ", format="%.4f", step=1e-4, value=-0.02835)
+    homo_o = st.number_input("HOMO (O):", format="%.4f", step=1e-4, value=-0.26768)
+    lumo_o = st.number_input("LUMO (V): ", format="%.4f", step=1e-4, value=-0.00669)
 
     calcular = st.form_submit_button('Calcular')
  
@@ -123,7 +129,7 @@ if seleccion == "Reactividad":
 #Visualización molecular#
 if seleccion == "Visualizacion molecular":
     st.title('VISUALIZACIÓN MOLECULAR')
-    st.write("Bienvenido. Aquí podrás ver la molecula en su forma tridimensional")
+    st.write("Bienvenido. Aquí podrás ver la molecula en su forma tridimensional al igual que ver información de la molécula")
     
     seleccion_molecula = st.selectbox("Seleccione una opción: ", ["SMILES", "Subir un archivo"])
     def otros_parametros(mol):
@@ -181,13 +187,13 @@ if seleccion == "Visualizacion molecular":
         xyzview.zoomTo()
         showmol(xyzview, height = 500,width=800)      
       
-      uploaded_files = st.sidebar.file_uploader("Choose xyz files", accept_multiple_files=True)
+      uploaded_files = st.sidebar.file_uploader("Subir archivos", accept_multiple_files=True)
       file_type = st.sidebar.radio("Tipo de archivo", ("xyz","mol","sdf"))
 
       for uploaded_file in uploaded_files:
         xyz = uploaded_file.getvalue().decode("utf-8")
         render_mol(xyz)
-        #st.write(xyz)
+
       
       #xyz to SMILES
       if file_type == "xyz":
@@ -318,7 +324,7 @@ if seleccion == "Visualizacion molecular":
 
 
     if seleccion_molecula == "SMILES":
-      compound_smiles=st.text_input('SMILES please','COc1cccc2cc(C(=O)NCCCCN3CCN(c4cccc5nccnc54)CC3)oc21')
+      compound_smiles=st.text_input('Intoduce SMILES','COc1cccc2cc(C(=O)NCCCCN3CCN(c4cccc5nccnc54)CC3)oc21')
       def makeblock(smi):
           mol = Chem.MolFromSmiles(smi)
           mol = Chem.AddHs(mol)
@@ -333,11 +339,62 @@ if seleccion == "Visualizacion molecular":
           xyzview.setBackgroundColor('white')
           xyzview.zoomTo()
           showmol(xyzview,height=500,width=500)
+
+      compounds = pubchempy.get_compounds(compound_smiles, namespace='smiles')
+      match = compounds[0]
+      st.subheader(match.iupac_name)
+
+      MolecularFormula = pubchempy.get_properties('MolecularFormula',compound_smiles, namespace='smiles')
+      mol_weight = pubchempy.get_properties('MolecularWeight',compound_smiles, namespace='smiles')
+      ExactMass = pubchempy.get_properties('ExactMass',compound_smiles, namespace='smiles')
+      MonoisotopicMass = pubchempy.get_properties('MonoisotopicMass',compound_smiles, namespace='smiles')
+      tpsa1 = pubchempy.get_properties('TPSA',compound_smiles, namespace='smiles')
+      RotatableBondCount = pubchempy.get_properties('RotatableBondCount',compound_smiles, namespace='smiles')
+      HBondDonorCount = pubchempy.get_properties('HBondDonorCount',compound_smiles, namespace='smiles')
+      HBondAcceptorCount = pubchempy.get_properties('HBondAcceptorCount',compound_smiles, namespace='smiles')
+      FeatureHydrophobeCount3D = pubchempy.get_properties('FeatureHydrophobeCount3D',compound_smiles, namespace='smiles')
+      Complexity = pubchempy.get_properties('Complexity',compound_smiles, namespace='smiles')
+      Charge = pubchempy.get_properties('Charge',compound_smiles, namespace='smiles')
+      CovalentUnitCount = pubchempy.get_properties('CovalentUnitCount',compound_smiles, namespace='smiles')
+      FeatureAcceptorCount3D = pubchempy.get_properties('FeatureAcceptorCount3D',compound_smiles, namespace='smiles')
+      FeatureDonorCount3D = pubchempy.get_properties('FeatureDonorCount3D',compound_smiles, namespace='smiles')
+      FeatureRingCount3D = pubchempy.get_properties('FeatureRingCount3D',compound_smiles, namespace='smiles')
+      XLogP = pubchempy.get_properties('XLogP',compound_smiles, namespace='smiles')
+
       
-      time=0
-      with st.spinner('Wait for it...'):
-        time.sleep(5)
-      st.success('Done!')
+
+      blk=makeblock(compound_smiles)
+      render_mol(blk)
+      
+      col1, col2, col3 = st.columns(3)
+      col1.metric("Molecular Formula", MolecularFormula[0]['MolecularFormula'])
+      col2.metric("Exact Mass", ExactMass[0]['ExactMass'])
+      col3.metric("Monoisotopic Mass", MonoisotopicMass[0]['MonoisotopicMass'])
+
+      col1, col2, col3 = st.columns(3)
+      col1.metric("Molecular weight", mol_weight[0]['MolecularWeight'])
+      col2.metric("TPSA", str(round(tpsa1[0]['TPSA'], 4)))
+      col3.metric("Complexity", str(Complexity[0]['Complexity']))
+
+      col1, col2, col3 = st.columns(3)
+      col1.metric("Rotable bond", str(RotatableBondCount[0]['RotatableBondCount']))
+      col2.metric("H bond donor", str(HBondDonorCount[0]['HBondDonorCount']))
+      col3.metric("H bond acceptor", str(HBondAcceptorCount[0]['HBondAcceptorCount']))
+
+      col1, col2, col3 = st.columns(3)
+      col1.metric("Ring count", str(FeatureRingCount3D[0]['FeatureRingCount3D']))
+      col2.metric("Acceptor count", str(FeatureAcceptorCount3D[0]['FeatureAcceptorCount3D']))
+      col3.metric("Donor count", str(FeatureDonorCount3D[0]['FeatureDonorCount3D']))
+
+      col1, col2, col3= st.columns(3)
+      col1.metric("Covalent unit", str(CovalentUnitCount[0]['CovalentUnitCount']))
+      col2.metric("Hydrophobe count", str(FeatureHydrophobeCount3D[0]['FeatureHydrophobeCount3D']))
+      col3.metric("Charge", Charge[0]['Charge'])
+
+      #st.metric("Log P", XLogP[0]['XLogP'])
+
+      otros_parametros(compound_smiles)
+
 
       compounds = pubchempy.get_compounds(compound_smiles, namespace='smiles')
       match = compounds[0]
