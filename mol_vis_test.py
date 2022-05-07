@@ -153,9 +153,7 @@ if seleccion == "Visualizacion molecular":
       st.pyplot(fig2)
 
       st.subheader("Pharmacophore")
-
-
-     
+s
       with st.expander("Pharmacophore")
       
         with st.expander("Abreviaciones"):
