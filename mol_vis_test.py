@@ -23,6 +23,12 @@ import json
 from io import StringIO
 #_________________________
 import pubchempy
+#_________________________
+from rdkit.Chem import ChemicalFeatures
+from rdkit.Chem.Pharm2D.SigFactory import SigFactory
+from rdkit.Chem.Pharm2D import Generate
+
+from rdkit.Chem.Pharm2D import Gobbi_Pharm2D,Generate
 
 #Inicio#
 st.title ("FENÓMENOS CUÁNTICOS")
@@ -145,6 +151,23 @@ if seleccion == "Visualizacion molecular":
       contribs = rdMolDescriptors._CalcCrippenContribs(mol)
       fig2 = SimilarityMaps.GetSimilarityMapFromWeights(mol,[x for x,y in contribs], colorMap='jet', contourLines=10)
       st.pyplot(fig2)
+
+      st.subheader("Pharmacophore")
+
+      fp = Generate.Gen2DFingerprint(mol,Gobbi_Pharm2D.factory)
+      st.write(fp)
+
+      st.write(fp.GetNumOnBits())
+      list1 = list(fp.GetOnBits())
+      st.write(list1)
+
+      cols = st.columns(2)
+      currentCol = 0
+      for el in list1:  
+        pharmacophore = Gobbi_Pharm2D.factory.GetBitDescription(el)
+        cols[currentCol].metric(pharmacophore[:pharmacophore.find('|')], pharmacophore[pharmacophore.find('|')-1:])
+        currentCol=(currentCol + 1) % len(cols)
+
 
     if seleccion_molecula == "Subir un archivo":
       def render_mol(xyz):
