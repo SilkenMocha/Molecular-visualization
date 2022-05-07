@@ -154,6 +154,14 @@ if seleccion == "Visualizacion molecular":
 
       st.subheader("Pharmacophore")
 
+      with st.expander("Abreviaciones"):
+        st.write("HA: Hydrogen-bond acceptor")
+        st.write("HD: Hydrogen-bond donor")
+        st.write("AR: Aromatic ring")
+        st.write("RR: Two rings")
+        st.write("LH: Hydrophobic")
+     
+
       fp = Generate.Gen2DFingerprint(mol,Gobbi_Pharm2D.factory)
       st.write(fp.GetNumOnBits())
       list1 = list(fp.GetOnBits())
