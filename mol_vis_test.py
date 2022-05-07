@@ -161,7 +161,7 @@ if seleccion == "Visualizacion molecular":
      LH: Hydrophobic
      ''')
      st.info("""
-        ABREVIACIONES
+     ABREVIACIONES
      HA: Hydrogen-bond acceptor
      HD: Hydrogen-bond donor
      AR: Aromatic ring
