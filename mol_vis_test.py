@@ -289,6 +289,7 @@ if seleccion == "Visualizacion molecular":
         FeatureAcceptorCount3D = pubchempy.get_properties('FeatureAcceptorCount3D',compound_smiles, namespace='smiles')
         FeatureDonorCount3D = pubchempy.get_properties('FeatureDonorCount3D',compound_smiles, namespace='smiles')
         FeatureRingCount3D = pubchempy.get_properties('FeatureRingCount3D',compound_smiles, namespace='smiles')
+        XLogP = pubchempy.get_properties('XLogP',compound_smiles, namespace='smiles')
 
         col1, col2, col3 = st.columns(3)
         col1.metric("Molecular Formula", MolecularFormula[0]['MolecularFormula'])
@@ -314,6 +315,8 @@ if seleccion == "Visualizacion molecular":
         col1.metric("Covalent unit", str(CovalentUnitCount[0]['CovalentUnitCount']))
         col2.metric("Hydrophobe count", str(FeatureHydrophobeCount3D[0]['FeatureHydrophobeCount3D']))
         col3.metric("Charge", Charge[0]['Charge'])
+
+        st.metric("Log P", XLogP[0]['XLogP'])
 
         otros_parametros(compound_smiles)
 
