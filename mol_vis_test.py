@@ -357,6 +357,9 @@ if seleccion == "Visualizacion molecular":
       FeatureAcceptorCount3D = pubchempy.get_properties('FeatureAcceptorCount3D',compound_smiles, namespace='smiles')
       FeatureDonorCount3D = pubchempy.get_properties('FeatureDonorCount3D',compound_smiles, namespace='smiles')
       FeatureRingCount3D = pubchempy.get_properties('FeatureRingCount3D',compound_smiles, namespace='smiles')
+      XLogP = pubchempy.get_properties('XLogP',compound_smiles, namespace='smiles')
+
+      st.metric("Log P", XLogP[0]['XLogP'])
 
       blk=makeblock(compound_smiles)
       render_mol(blk)
