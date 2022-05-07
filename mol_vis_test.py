@@ -154,24 +154,27 @@ if seleccion == "Visualizacion molecular":
 
       st.subheader("Pharmacophore")
 
-      with st.expander("Abreviaciones"):
-        st.write("HA: Hydrogen-bond acceptor")
-        st.write("HD: Hydrogen-bond donor")
-        st.write("AR: Aromatic ring")
-        st.write("RR: Two rings")
-        st.write("LH: Hydrophobic")
+
      
+      with st.expander("Pharmacophore")
+      
+        with st.expander("Abreviaciones"):
+          st.write("HA: Hydrogen-bond acceptor")
+          st.write("HD: Hydrogen-bond donor")
+          st.write("AR: Aromatic ring")
+          st.write("RR: Two rings")
+          st.write("LH: Hydrophobic")        
+        
+        fp = Generate.Gen2DFingerprint(mol,Gobbi_Pharm2D.factory)
+        st.write(fp.GetNumOnBits())
+        list1 = list(fp.GetOnBits())
 
-      fp = Generate.Gen2DFingerprint(mol,Gobbi_Pharm2D.factory)
-      st.write(fp.GetNumOnBits())
-      list1 = list(fp.GetOnBits())
-
-      cols = st.columns(2)
-      currentCol = 0
-      for el in list1:  
-        pharmacophore = Gobbi_Pharm2D.factory.GetBitDescription(el)
-        cols[currentCol].metric(pharmacophore[:pharmacophore.find('|')], pharmacophore[pharmacophore.find('|')-1:])
-        currentCol=(currentCol + 1) % len(cols)
+        cols = st.columns(2)
+        currentCol = 0
+        for el in list1:  
+          pharmacophore = Gobbi_Pharm2D.factory.GetBitDescription(el)
+          cols[currentCol].metric(pharmacophore[:pharmacophore.find('|')], pharmacophore[pharmacophore.find('|')-1:])
+          currentCol=(currentCol + 1) % len(cols)
 
 
     if seleccion_molecula == "Subir un archivo":
