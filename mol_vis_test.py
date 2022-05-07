@@ -160,14 +160,14 @@ if seleccion == "Visualizacion molecular":
      RR: Two rings
      LH: Hydrophobic
      ''')
-     st.info('''
+     st.info("""
         ABREVIACIONES
      HA: Hydrogen-bond acceptor
      HD: Hydrogen-bond donor
      AR: Aromatic ring
      RR: Two rings
      LH: Hydrophobic
-     ''')
+     """)
 
       with st.expander("Abreviaciones"):
         st.write("HA: Hydrogen-bond acceptor")
