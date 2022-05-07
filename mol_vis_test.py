@@ -164,7 +164,6 @@ if seleccion == "Visualizacion molecular":
           st.write("LH: Hydrophobic")        
         
         fp = Generate.Gen2DFingerprint(mol,Gobbi_Pharm2D.factory)
-        st.write(fp.GetNumOnBits())
         list1 = list(fp.GetOnBits())
 
         cols = st.columns(2)
