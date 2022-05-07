@@ -160,12 +160,12 @@ if seleccion == "Visualizacion molecular":
      RR: Two rings
      LH: Hydrophobic
      ''')
-     st.info("ABREVIACIONES")
-     st.info("HA: Hydrogen-bond acceptor")
-     st.info("HD:Hydrogen-bond donor")
-     st.info("AR: Aromatic ring")
-     st.info("RR: Two rings")
-     st.info("LH: Hydrophobic")
+      st.info("ABREVIACIONES")
+      st.info("HA: Hydrogen-bond acceptor")
+      st.info("HD:Hydrogen-bond donor")
+      st.info("AR: Aromatic ring")
+      st.info("RR: Two rings")
+      st.info("LH: Hydrophobic")
 
 
       with st.expander("Abreviaciones"):
