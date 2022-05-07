@@ -153,7 +153,7 @@ if seleccion == "Visualizacion molecular":
       st.pyplot(fig2)
 
       st.subheader("Pharmacophore")
-      txt = st.text_area('Text to analyze', '''
+      txt = st.text_area('ABREBIACIONES', '''
      HA: Hydrogen-bond acceptor
      HD: Hydrogen-bond donor
      AR: Aromatic ring
