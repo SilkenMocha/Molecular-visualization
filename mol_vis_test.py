@@ -316,7 +316,7 @@ if seleccion == "Visualizacion molecular":
         col2.metric("Hydrophobe count", str(FeatureHydrophobeCount3D[0]['FeatureHydrophobeCount3D']))
         col3.metric("Charge", Charge[0]['Charge'])
 
-        st.metric("Log P", XLogP[0]['XLogP'])
+        #st.metric("Log P", XLogP[0]['XLogP'])
 
         otros_parametros(compound_smiles)
 
@@ -389,7 +389,7 @@ if seleccion == "Visualizacion molecular":
       col2.metric("Hydrophobe count", str(FeatureHydrophobeCount3D[0]['FeatureHydrophobeCount3D']))
       col3.metric("Charge", Charge[0]['Charge'])
 
-      st.metric("Log P", XLogP[0]['XLogP'])
+      #st.metric("Log P", XLogP[0]['XLogP'])
 
       otros_parametros(compound_smiles)
 
