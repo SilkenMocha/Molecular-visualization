@@ -36,10 +36,6 @@ st.subheader("Calculos de reactividad y visualización molecular")
 st.image("https://www.meteorologiaenred.com/wp-content/uploads/2021/12/que-es-la-fisica-cuantica-caracteristicas.jpg")
 st.subheader("Erick López Saldviar 348916")
 
-
-
-
-
 seleccion = st.selectbox("Seleccione una opción: ", ["Visualizacion molecular", "Reactividad"])
 
 #__________________________________________________________________________________________
@@ -394,60 +390,3 @@ if seleccion == "Visualizacion molecular":
       #st.metric("Log P", XLogP[0]['XLogP'])
 
       otros_parametros(compound_smiles)
-
-
-      compounds = pubchempy.get_compounds(compound_smiles, namespace='smiles')
-      match = compounds[0]
-      st.subheader(match.iupac_name)
-
-      MolecularFormula = pubchempy.get_properties('MolecularFormula',compound_smiles, namespace='smiles')
-      mol_weight = pubchempy.get_properties('MolecularWeight',compound_smiles, namespace='smiles')
-      ExactMass = pubchempy.get_properties('ExactMass',compound_smiles, namespace='smiles')
-      MonoisotopicMass = pubchempy.get_properties('MonoisotopicMass',compound_smiles, namespace='smiles')
-      tpsa1 = pubchempy.get_properties('TPSA',compound_smiles, namespace='smiles')
-      RotatableBondCount = pubchempy.get_properties('RotatableBondCount',compound_smiles, namespace='smiles')
-      HBondDonorCount = pubchempy.get_properties('HBondDonorCount',compound_smiles, namespace='smiles')
-      HBondAcceptorCount = pubchempy.get_properties('HBondAcceptorCount',compound_smiles, namespace='smiles')
-      FeatureHydrophobeCount3D = pubchempy.get_properties('FeatureHydrophobeCount3D',compound_smiles, namespace='smiles')
-      Complexity = pubchempy.get_properties('Complexity',compound_smiles, namespace='smiles')
-      Charge = pubchempy.get_properties('Charge',compound_smiles, namespace='smiles')
-      CovalentUnitCount = pubchempy.get_properties('CovalentUnitCount',compound_smiles, namespace='smiles')
-      FeatureAcceptorCount3D = pubchempy.get_properties('FeatureAcceptorCount3D',compound_smiles, namespace='smiles')
-      FeatureDonorCount3D = pubchempy.get_properties('FeatureDonorCount3D',compound_smiles, namespace='smiles')
-      FeatureRingCount3D = pubchempy.get_properties('FeatureRingCount3D',compound_smiles, namespace='smiles')
-      XLogP = pubchempy.get_properties('XLogP',compound_smiles, namespace='smiles')
-
-      
-
-      blk=makeblock(compound_smiles)
-      render_mol(blk)
-      
-      col1, col2, col3 = st.columns(3)
-      col1.metric("Molecular Formula", MolecularFormula[0]['MolecularFormula'])
-      col2.metric("Exact Mass", ExactMass[0]['ExactMass'])
-      col3.metric("Monoisotopic Mass", MonoisotopicMass[0]['MonoisotopicMass'])
-
-      col1, col2, col3 = st.columns(3)
-      col1.metric("Molecular weight", mol_weight[0]['MolecularWeight'])
-      col2.metric("TPSA", str(round(tpsa1[0]['TPSA'], 4)))
-      col3.metric("Complexity", str(Complexity[0]['Complexity']))
-
-      col1, col2, col3 = st.columns(3)
-      col1.metric("Rotable bond", str(RotatableBondCount[0]['RotatableBondCount']))
-      col2.metric("H bond donor", str(HBondDonorCount[0]['HBondDonorCount']))
-      col3.metric("H bond acceptor", str(HBondAcceptorCount[0]['HBondAcceptorCount']))
-
-      col1, col2, col3 = st.columns(3)
-      col1.metric("Ring count", str(FeatureRingCount3D[0]['FeatureRingCount3D']))
-      col2.metric("Acceptor count", str(FeatureAcceptorCount3D[0]['FeatureAcceptorCount3D']))
-      col3.metric("Donor count", str(FeatureDonorCount3D[0]['FeatureDonorCount3D']))
-
-      col1, col2, col3= st.columns(3)
-      col1.metric("Covalent unit", str(CovalentUnitCount[0]['CovalentUnitCount']))
-      col2.metric("Hydrophobe count", str(FeatureHydrophobeCount3D[0]['FeatureHydrophobeCount3D']))
-      col3.metric("Charge", Charge[0]['Charge'])
-
-      #st.metric("Log P", XLogP[0]['XLogP'])
-
-      otros_parametros(compound_smiles)
-
