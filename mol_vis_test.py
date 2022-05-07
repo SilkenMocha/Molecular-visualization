@@ -155,11 +155,8 @@ if seleccion == "Visualizacion molecular":
       st.subheader("Pharmacophore")
 
       fp = Generate.Gen2DFingerprint(mol,Gobbi_Pharm2D.factory)
-      st.write(fp)
-
       st.write(fp.GetNumOnBits())
       list1 = list(fp.GetOnBits())
-      st.write(list1)
 
       cols = st.columns(2)
       currentCol = 0
