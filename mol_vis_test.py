@@ -338,6 +338,10 @@ if seleccion == "Visualizacion molecular":
           xyzview.zoomTo()
           showmol(xyzview,height=500,width=500)
 
+      with st.spinner('Wait for it...'):
+        time.sleep(5)
+      st.success('Done!')
+
       compounds = pubchempy.get_compounds(compound_smiles, namespace='smiles')
       match = compounds[0]
       st.subheader(match.iupac_name)
