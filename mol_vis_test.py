@@ -132,12 +132,12 @@ if seleccion == "Visualizacion molecular":
     seleccion_molecula = st.selectbox("Seleccione una opción: ", ["SMILES", "Subir un archivo"])
     def otros_parametros(mol):
       
-      m = Chem.MolFromSmiles(compound_smiles)
+      mol = Chem.MolFromSmiles(compound_smiles)
       #tpsa = Descriptors.TPSA(m)
-      logP = Descriptors.MolLogP(m)
+      logP = Descriptors.MolLogP(mol)
       #st.write("TPSA: " + str(tpsa))
       st.metric("Log P", str(logP))
-      mol = Chem.MolFromSmiles(compound_smiles)
+      
       
       # Gasteiger partial charges
       st.subheader("Gesteiger partial charges")
