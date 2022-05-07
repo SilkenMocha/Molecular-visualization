@@ -337,7 +337,8 @@ if seleccion == "Visualizacion molecular":
           xyzview.setBackgroundColor('white')
           xyzview.zoomTo()
           showmol(xyzview,height=500,width=500)
-
+      
+      time=0
       with st.spinner('Wait for it...'):
         time.sleep(5)
       st.success('Done!')
