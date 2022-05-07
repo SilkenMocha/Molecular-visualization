@@ -160,7 +160,8 @@ if seleccion == "Visualizacion molecular":
      RR: Two rings
      LH: Hydrophobic
      ''')
-     st.info('ABREVIACIONES', '''
+     st.info('''
+        ABREVIACIONES
      HA: Hydrogen-bond acceptor
      HD: Hydrogen-bond donor
      AR: Aromatic ring
