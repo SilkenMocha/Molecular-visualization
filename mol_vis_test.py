@@ -154,7 +154,7 @@ if seleccion == "Visualizacion molecular":
 
       st.subheader("Pharmacophore")
 s
-      with st.expander("Pharmacophore")
+      with st.expander("Pharmacophore"):
       
         with st.expander("Abreviaciones"):
           st.write("HA: Hydrogen-bond acceptor")
