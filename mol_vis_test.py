@@ -359,7 +359,7 @@ if seleccion == "Visualizacion molecular":
       FeatureRingCount3D = pubchempy.get_properties('FeatureRingCount3D',compound_smiles, namespace='smiles')
       XLogP = pubchempy.get_properties('XLogP',compound_smiles, namespace='smiles')
 
-      st.metric("Log P", XLogP[0]['XLogP'])
+      
 
       blk=makeblock(compound_smiles)
       render_mol(blk)
@@ -388,6 +388,8 @@ if seleccion == "Visualizacion molecular":
       col1.metric("Covalent unit", str(CovalentUnitCount[0]['CovalentUnitCount']))
       col2.metric("Hydrophobe count", str(FeatureHydrophobeCount3D[0]['FeatureHydrophobeCount3D']))
       col3.metric("Charge", Charge[0]['Charge'])
+
+      st.metric("Log P", XLogP[0]['XLogP'])
 
       otros_parametros(compound_smiles)
 
